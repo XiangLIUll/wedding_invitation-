@@ -196,7 +196,7 @@
     const content = document.getElementById('content');
     const gate = document.getElementById('gate');
     // 修改为你的口令，可设置多个，例如 ['1314','我们结婚啦']
-    const allowedPlain = ['请改为你自己的口令'];
+    const allowedPlain = ['811'];
     const ok = (v)=> allowedPlain.includes((v||'').trim());
     function show(){ if(content){content.hidden=false;} if(gate){gate.remove();} }
     const qp = new URLSearchParams(location.search); const c = qp.get('code');
