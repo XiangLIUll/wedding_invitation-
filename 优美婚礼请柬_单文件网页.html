@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>我们的婚礼｜新郎 & 新娘</title>
+  <meta name="description" content="诚挚邀请您见证我们的婚礼。" />
+  <!-- 分享卡片/社交预览 -->
+  <meta property="og:title" content="我们的婚礼｜新郎 & 新娘" />
+  <meta property="og:description" content="诚挚邀请您见证我们的婚礼。点击查看详情与回复出席。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" />
+
+  <!-- 优雅字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Great+Vibes&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg:#f7f2ee;         /* 背景米杏 */
+      --ink:#2a2a2a;        /* 文字深色 */
+      --gold:#b8995f;       /* 香槟金 */
+      --rose:#e9c9c3;       /* 玫瑰粉 */
+      --card: rgba(255,255,255,.75);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif SC", serif;}
+    a{color:inherit}
+
+    /* 背景纹理与淡淡的渐变 */
+    body::before{
+      content:"";position:fixed;inset:0;z-index:-2;
+      background:radial-gradient(1200px 600px at 80% -10%, #fff, transparent),
+                 radial-gradient(800px 500px at -10% 100%, #fff, transparent),
+                 linear-gradient(180deg,#fff0, #fff0 40%, #f7e9e3 140%);
+    }
+
+    /* 飘落花瓣 */
+    .petals{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:-1}
+    .petals span{
+      position:absolute;top:-10vh; width:18px;height:14px;border-radius:54% 46% 67% 33%/48% 57% 43% 52%;
+      background:linear-gradient(145deg, #fff, var(--rose)); opacity:.5; filter:blur(.2px);
+      animation:fall linear infinite;
+    }
+    @keyframes fall{
+      0%{transform:translateY(-10vh) rotate(0deg)}
+      100%{transform:translateY(110vh) rotate(360deg)}
+    }
+
+    .wrap{max-width:960px;margin:auto;padding:24px}
+
+    .card{background:var(--card);backdrop-filter:blur(6px);border:1px solid #fff7;box-shadow:0 10px 30px #00000014;border-radius:20px;padding:28px}
+
+    header.hero{display:grid;gap:18px;align-items:center;margin:24px 0 10px}
+    .badge{display:inline-block;padding:6px 12px;border-radius:999px;background:#fff;letter-spacing:.12em;color:#666;border:1px solid #eee}
+    .names{font-weight:900;font-size:clamp(36px,8vw,64px);line-height:1.04;margin:6px 0}
+    .amp{font-family:"Great Vibes",cursive;color:var(--gold);font-weight:400;margin:0 12px;font-size:1.1em}
+    .meta{color:#666}
+
+    .btn{display:inline-block;padding:12px 20px;border-radius:999px;text-decoration:none;border:1px solid #0000;transition:.2s ease;
+         background:linear-gradient(180deg,#fff,#f5efe9);
+         box-shadow:0 6px 18px #00000010, inset 0 0 0 1px #ffffffb3}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 10px 22px #00000016, inset 0 0 0 1px #fff}
+    .btn.gold{background:linear-gradient(180deg,#e7d8c2,#c9aa74); color:#352a16; font-weight:600}
+
+    .grid{display:grid;gap:16px}
+    @media (min-width:760px){
+      .grid.twocol{grid-template-columns:1.2fr .8fr}
+      .grid.three{grid-template-columns:repeat(3,1fr)}
+    }
+
+    .section-title{font-size:22px;font-weight:700;margin:6px 0 8px;letter-spacing:.06em;color:#443b2a}
+    .kvs{margin:8px 0 0;line-height:1.7}
+    .kvs b{display:inline-block;min-width:5ch;color:#6a5a3e}
+
+    .countdown{font-feature-settings:"tnum" 1,"pnum" 1; font-variant-numeric:tabular-nums; display:flex; gap:10px; flex-wrap:wrap}
+    .countdown .slot{background:#fff;border:1px solid #eee;border-radius:14px;padding:10px 14px;min-width:84px;text-align:center}
+    .slot .num{font-size:28px;font-weight:700;display:block}
+    .slot .lab{font-size:12px;color:#777}
+
+    .timeline{list-style:none;padding:0;margin:0}
+    .timeline li{display:grid;grid-template-columns:84px 1fr;gap:12px;padding:14px 0;border-bottom:1px dashed #e7e0d8}
+    .timeline time{color:#6a5a3e;font-weight:600}
+
+    .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+    .gallery img{width:100%;height:180px;object-fit:cover;border-radius:14px;border:1px solid #fff}
+    @media (min-width:760px){ .gallery{grid-template-columns:repeat(4,1fr)} }
+
+    footer{color:#7a6b52;text-align:center;padding:22px 0 36px}
+  </style>
+  <meta name="robots" content="noindex,nofollow,noimageindex,noarchive" />
+  <meta name="googlebot" content="noindex,nofollow" />
+  <meta name="referrer" content="no-referrer" />
+</head>
+<body>
+
+  <!-- 亲友口令门禁（软保护） -->
+  <div id="gate" class="wrap">
+    <div class="card" style="text-align:center; margin:8vh auto 0; max-width:720px">
+      <span class="badge">Private Invitation</span>
+      <h2 class="names" style="font-size:32px; margin:8px 0 0">亲友口令</h2>
+      <p class="meta">仅对受邀亲友开放，请输入口令后查看请柬。</p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px">
+        <input id="pass" type="password" placeholder="请输入口令" aria-label="请输入口令" style="padding:12px 16px;border-radius:12px;border:1px solid #e6e0d7;min-width:260px;outline:none" />
+        <button class="btn gold" id="okBtn" type="button">进入</button>
+      </div>
+      <p id="msg" class="meta" style="margin-top:10px;color:#a66"></p>
+    </div>
+  </div>
+
+
+  <!-- 飘落花瓣若干个 -->
+  <div class="petals" aria-hidden="true"></div>
+
+  <main class="wrap" id="content" hidden>
+    <header class="hero card">
+      <span class="badge">Wedding Invitation</span>
+      <h1 class="names">新郎姓名 <span class="amp">&</span> 新娘姓名</h1>
+      <p class="meta">公历 <b>2025年10月2日（周四）11:30</b> ｜ 地点：<b>某某酒店·宴会厅</b></p>
+      <div class="grid twocol" style="align-items:center;gap:22px">
+        <div>
+          <div class="section-title">倒计时</div>
+          <div class="countdown" id="countdown">
+            <div class="slot"><span class="num">—</span><span class="lab">天</span></div>
+            <div class="slot"><span class="num">—</span><span class="lab">时</span></div>
+            <div class="slot"><span class="num">—</span><span class="lab">分</span></div>
+            <div class="slot"><span class="num">—</span><span class="lab">秒</span></div>
+          </div>
+          <p style="margin-top:12px;color:#6f6456">愿在花与光中，与您共享这份喜悦。</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+            <a class="btn gold" href="#rsvp">回复出席</a>
+            <button class="btn" id="shareBtn" type="button">分享请柬链接</button>
+            <button class="btn" id="copyBtn" type="button">复制链接</button>
+          </div>
+        </div>
+        <div class="card" style="padding:0;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1200&auto=format&fit=crop" alt="wedding" style="width:100%;height:100%;object-fit:cover;display:block"/>
+        </div>
+      </div>
+    </header>
+
+    <section class="card" id="details" style="margin-top:18px">
+      <div class="grid twocol" style="gap:22px">
+        <div>
+          <div class="section-title">婚礼信息</div>
+          <p class="kvs"><b>日期</b> 2025年10月2日（农历八月初十）</p>
+          <p class="kvs"><b>时间</b> 11:30 典礼，12:18 入席</p>
+          <p class="kvs"><b>地点</b> 某某酒店·一层宴会厅（城市/区）</p>
+          <p class="kvs"><b>着装</b> 端庄雅致 / Smart Casual（可点缀米杏或香槟金）</p>
+          <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" target="_blank" href="https://maps.google.com/?q=Hotel">查看地图</a>
+            <a class="btn" id="icsBtn" href="#">加入日历</a>
+          </div>
+        </div>
+        <div>
+          <div class="section-title">当日流程</div>
+          <ul class="timeline">
+            <li><time>10:30</time><span>宾客签到 · 迎宾区合影</span></li>
+            <li><time>11:30</time><span>证婚仪式 · 交换誓言</span></li>
+            <li><time>12:18</time><span>开席 · 亲友祝福</span></li>
+            <li><time>14:00</time><span>送宾 · 感谢光临</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:18px">
+      <div class="section-title">甜蜜相册</div>
+      <div class="gallery" aria-label="gallery">
+        <img src="https://images.unsplash.com/photo-1501376420731-2250d9a24e0e?q=80&w=1200&auto=format&fit=crop" alt="gallery1"/>
+        <img src="https://images.unsplash.com/photo-1525447152931-1c1b9c3de37b?q=80&w=1200&auto=format&fit=crop" alt="gallery2"/>
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop" alt="gallery3"/>
+        <img src="https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?q=80&w=1200&auto=format&fit=crop" alt="gallery4"/>
+      </div>
+    </section>
+
+    <section id="rsvp" class="card" style="margin-top:18px">
+      <div class="section-title">请回复出席</div>
+      <p style="margin:8px 0 14px">为了更好地安排席位与餐食，烦请您在 <b>9月15日</b> 前回复是否出席。感谢！</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <!-- 将下面链接替换为你的表单地址（例：问卷星/飞书/Google 表单） -->
+        <a class="btn gold" href="https://forms.gle/your-form" target="_blank">打开 RSVP 表单</a>
+        <a class="btn" href="tel:+8613800000000">联系新人</a>
+      </div>
+    </section>
+
+    <footer>
+      谢谢您的祝福与到来｜期待与您相见
+    </footer>
+  </main>
+
+  <script>
+  // —— 亲友口令门禁（软保护） ——
+  (function(){
+    const content = document.getElementById('content');
+    const gate = document.getElementById('gate');
+    // 修改为你的口令，可设置多个，例如 ['1314','我们结婚啦']
+    const allowedPlain = ['请改为你自己的口令'];
+    const ok = (v)=> allowedPlain.includes((v||'').trim());
+    function show(){ if(content){content.hidden=false;} if(gate){gate.remove();} }
+    const qp = new URLSearchParams(location.search); const c = qp.get('code');
+    if(localStorage.getItem('invite_ok')==='1' || (c && ok(c))){ localStorage.setItem('invite_ok','1'); show(); }
+    document.getElementById('okBtn')?.addEventListener('click', ()=>{
+      const v = document.getElementById('pass')?.value || '';
+      if(ok(v)){ localStorage.setItem('invite_ok','1'); show(); }
+      else{ const m = document.getElementById('msg'); if(m) m.textContent='口令不正确，请再试试'; }
+    });
+  })();
+    // 生成少量花瓣
+    (function(){
+      const box=document.querySelector('.petals');
+      const n=24; // 数量
+      for(let i=0;i<n;i++){
+        const s=document.createElement('span');
+        const left=Math.random()*100; // vw
+        const delay=Math.random()*8;  // s
+        const dur = 10 + Math.random()*10; // s
+        s.style.left=left+'vw';
+        s.style.animationDuration=dur+'s';
+        s.style.animationDelay=delay+'s';
+        s.style.opacity=0.35+Math.random()*0.4;
+        s.style.transform=`translateY(${-10-Math.random()*80}vh)`;
+        box.appendChild(s);
+      }
+    })();
+
+    // 倒计时（修改下面日期时间）
+    const weddingTime = new Date('2025-10-02T11:30:00+08:00');
+    const cd = document.getElementById('countdown');
+    const update = () => {
+      const now = new Date();
+      let diff = Math.max(0, weddingTime - now);
+      const d = Math.floor(diff/86400000); diff -= d*86400000;
+      const h = Math.floor(diff/3600000); diff -= h*3600000;
+      const m = Math.floor(diff/60000); diff -= m*60000;
+      const s = Math.floor(diff/1000);
+      cd.innerHTML = `
+        <div class="slot"><span class="num">${String(d)}</span><span class="lab">天</span></div>
+        <div class="slot"><span class="num">${String(h).padStart(2,'0')}</span><span class="lab">时</span></div>
+        <div class="slot"><span class="num">${String(m).padStart(2,'0')}</span><span class="lab">分</span></div>
+        <div class="slot"><span class="num">${String(s).padStart(2,'0')}</span><span class="lab">秒</span></div>`;
+    };
+    update(); setInterval(update, 1000);
+
+    // 一键分享/复制链接
+    const shareBtn = document.getElementById('shareBtn');
+    const copyBtn  = document.getElementById('copyBtn');
+    shareBtn?.addEventListener('click', async () => {
+      const data = { title:'我们的婚礼', text:'诚邀您的见证与祝福', url: location.href };
+      if (navigator.share) {
+        try { await navigator.share(data); } catch(e){}
+      } else { await navigator.clipboard.writeText(location.href); shareBtn.textContent='链接已复制'; }
+    });
+    copyBtn?.addEventListener('click', async () => {
+      await navigator.clipboard.writeText(location.href);
+      copyBtn.textContent='已复制';
+      setTimeout(()=>copyBtn.textContent='复制链接',1500)
+    });
+
+    // 生成 ICS 日历文件
+    const icsBtn = document.getElementById('icsBtn');
+    icsBtn?.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const dtstart = '20251002T113000'; // 本地时间，按需修改
+      const dtend   = '20251002T140000';
+      const ics = `BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Wedding Invite//CN\nBEGIN:VEVENT\nUID:${Date.now()}@invite\nDTSTAMP:${new Date().toISOString().replace(/[-:]/g,'').split('.')[0]}Z\nDTSTART:${dtstart}\nDTEND:${dtend}\nSUMMARY:我们的婚礼\nLOCATION:某某酒店·宴会厅\nDESCRIPTION:诚挚邀请您光临我们的婚礼！\nEND:VEVENT\nEND:VCALENDAR`;
+      const blob = new Blob([ics], {type:'text/calendar'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'wedding-invite.ics';
+      document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>
